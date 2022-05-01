@@ -25,3 +25,7 @@ It's a set of 7 scripts, which are:
   3. Make the files executable: ```chmod ugo+x ~/MyFiles/Image_Assistant_Scripts/*.sh```
   4. Execute MainMenu.sh: ```~/MyFiles/Image_Assistant_Scripts/MainMenu.sh```
 
+**Not supported yet**
+
+ - The 'optimization' seems to not make much difference in almost all the cases I have tested. It's possible to create an automated method for that, but the effort and the benefit is not good. Apps will use most of the files already loaded during OS initilization. I don't think Linux would benefit from this as in Windows fleet instances.
+ - Environment variables - This one I already have a pseudo-code I can use, but I haven't find time yet.
