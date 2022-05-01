@@ -164,7 +164,7 @@ else
 		fi
 		#Show the results and ask the user to select the PID that is most likely the app
 		until [[ $as2_application_pid > 0 ]]; do
-			as2_application_pid=$(whiptail --inputbox "Type PID NUMBER you got from the last screen:" 24 78 --title "Add Application" 3>&1 1>&2 2>&3)
+			as2_application_pid=$(whiptail --inputbox "Type PID NUMBER you got from the last screen:" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
 			exitstatus=$?
 			if [ $exitstatus = 1 ]; then
 			exit
@@ -239,6 +239,7 @@ echo "#                                                               #"
 echo "# Ok, I will add the following application:                     #"
 echo "#                                                               #"
 echo "#################################################################"
+echo ""
 echo "-> Application Name: $as2_application_name"
 echo "-> App Absolute Path: $as2_app_absolute_path"
 echo "-> App Display Name: $as2_app_display_name"
