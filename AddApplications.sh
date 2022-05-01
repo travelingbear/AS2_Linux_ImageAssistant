@@ -104,7 +104,7 @@ if (whiptail --title "Add Application" --yesno "Is the application a SHELL or a 
 		echo "Remember that ${bold}/usr/local/bin/$app_to_lower_case.sh${normal} is now the 'ABSOLUTE PATH' of your app."
 		echo "You need to inform it in the next screen."
 		echo ""
-		read -p "Hit enter to return to the assistant..."
+		read -p "COPY the path above and hit enter to return to the assistant..."
 	fi
 fi
 
