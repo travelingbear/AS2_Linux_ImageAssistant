@@ -1,4 +1,4 @@
-# AS2_Linux_ImageAssistant
+# AS2 Linux Image Creation Wizard
 
 **What is?**
 
