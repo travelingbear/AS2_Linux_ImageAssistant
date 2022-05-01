@@ -22,8 +22,8 @@ home_screen () {
 	
 	echo "1) Add applications"
 	echo "2) List applications"
-	echo "3) Remove application"
-	echo "4) Test applications"
+	echo "3) Test applications"
+	echo "4) Remove application"
 	echo "5) Create/Update Session Script"
 	echo "6) Create Image"
 	echo "7) Exit"
@@ -39,8 +39,8 @@ echo ""
 options=(
 	"Add applications"
 	"List applications"
-	"Remove application"
 	"Test applications"
+	"Remove application"
 	"Create/Update Session Script"
 	"Create Image"
 	"Exit"
@@ -52,8 +52,8 @@ select option in "${options[@]}"; do
     case "$REPLY" in 
         1) ./AddApplications.sh && home_screen ;;
         2) ./ListApplications.sh && home_screen ;;
-        3) ./RemoveApplication.sh && home_screen ;;
-        4) ./TestApplications.sh && home_screen ;;
+        3) ./TestApplications.sh && home_screen ;;
+        4) ./RemoveApplication.sh && home_screen ;;
         5) ./CreateSessionScript.sh && home_screen ;;
         6) ./CreateImage.sh && home_screen ;;
         7) break ;;
