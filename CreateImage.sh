@@ -35,6 +35,6 @@ if (whiptail --title "Create the image" --yesno "Can I create the image?" 12 78)
 	fi
 	exit
 else
+	clear
 	exit
-	
 fi
