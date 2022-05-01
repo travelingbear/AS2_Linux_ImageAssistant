@@ -19,7 +19,7 @@ cat ~/AS2ImageAssistant/app_list.txt | sed -r 's/\s+/ /g' | column -t -s' '
 echo ""
 echo "-----------------------------------------------------------------"
 echo ""
-PS3="Choose an app to test -> configure -> export configuration: "
+PS3="Choose an app to test: "
 var_menu=$(cat ~/AS2ImageAssistant/as2_app_list.json | jq -r '.applications[] .AbsoluteAppPath')
 var_item_menu=""
 options=($var_menu Exit)
