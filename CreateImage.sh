@@ -14,6 +14,19 @@ cat ~/AS2ImageAssistant/app_list.txt | sed -r 's/\s+/ /g' | column -t -s' '
 echo ""
 read -p "Review the applications above and hit enter to continue..."
 
+if (whiptail --title "Create the image" --yesno "Do you want to save the applications settings into the image?" 12 78); then
+    
+	#Creates the skel directory - This directory will be used to save the Default Application Settings for users.
+	[ ! -d /etc/skel/.config ] && sudo mkdir /etc/skel/.config
+	
+	sudo cp -R ~/.config/* /etc/skel/.config
+	if ( ls /etc/skel/.config ); then
+		whiptail --msgbox --title "Create the image" "App folder copied successfully!" 12 78
+	else
+		whiptail --msgbox --title "Create the image" "The assistant couldn't find any configuration folder." 12 78
+	fi
+fi
+
 #QUESTION - Can I create the image?
 clear
 echo "Creating the image..."
