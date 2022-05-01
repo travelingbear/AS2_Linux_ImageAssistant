@@ -34,7 +34,6 @@ do
 	echo "Check if the app is working fine and make all configurations you want to export to the users (if needed)."
 	echo ""
 	read -p "Press any key to continue ..."
-	clear
   fi
 done
 exit
