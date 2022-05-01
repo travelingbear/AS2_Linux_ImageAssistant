@@ -15,6 +15,9 @@ It's a set of 7 scripts, which are:
    - CreateSessionScript.sh -> Opens a new wizard to help you create a Session Script and configure your config.json file
    - CreateImage.sh -> You guessed it, it creates the image
 
+**Pre-requisites**
+ - It goes without saying that you need git to clone: ```sudo yum update && sudo yum install git -y```
+
 **How to use?**
 
   1. You can download all the files one by one to your Image Builder OR
