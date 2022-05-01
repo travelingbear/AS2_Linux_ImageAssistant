@@ -60,13 +60,13 @@ do
 			  read -p "Press any key to return to the assistant ..."
 			else
 			  echo ""
-			  echo "The assistance couldn't copy the configuration folder. Does the application supports it?"
+			  echo "The assistance couldn't copy the configuration folder $var_item_menu. Does the application supports it?"
 			  echo ""
 			  read -p "Press any key to return to the assistant ..."
 			fi
 		  else 
 			  echo ""
-			  echo "The assistance couldn't copy the configuration folder. Does the application supports it?"
+			  echo "The assistance couldn't find the configuration folder $var_item_menu. Does the application supports it?"
 			  echo ""
 			  read -p "Press any key to return to the assistant ..."
 		  fi
