@@ -17,10 +17,8 @@ It's a set of 7 scripts, which are:
 
 **How to use?**
 
-  1. You can download all the files as a zip or one by one to your Image Builder
-  2. Save those files in /usr/local/bin/as2_image_assistant/ for example
-  3. Make the files executable by
-     a. cd /usr/local/bin/as2_image_assistant/
-     b. chmod ugo+x *
-  4. Execute the MainMenu.sh with "/usr/local/bin/as2_image_assistant/MainMenu.sh"
+  1. You can download all the files one by one to your Image Builder OR
+  2. Git clone them like this: ```git clone https://github.com/travelingbear/AS2_Linux_ImageAssistant --depth 1 --branch=main ~/MyFiles/Image_Assistant_Scripts/```
+  3. Make the files executable: ```chmod ugo+x ~/MyFiles/Image_Assistant_Scripts/*.sh```
+  4. Execute MainMenu.sh: ```~/MyFiles/Image_Assistant_Scripts/MainMenu.sh```
 
