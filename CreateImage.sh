@@ -39,13 +39,13 @@ if (whiptail --title "Create the image" --yesno "Can I create the image?" 12 78)
 			exit
 		fi
 	done
-	#Kills any process owned by test-user; then removes it
-	sudo killall -u test-user 2> /dev/null
-	sudo userdel test-user 2> /dev/null
-	sudo rm -rf /home/test-user 2> /dev/null
+	#Kills any process owned by as2-test-user; then removes it
+	sudo killall -u as2-test-user 2> /dev/null
+	sudo userdel as2-test-user 2> /dev/null
+	sudo rm -rf /home/as2-test-user 2> /dev/null
 
-	#Removes the test-user from xhost
-	xhost -si:localuser:test-user 2> /dev/null
+	#Removes the as2-test-user from xhost
+	xhost -si:localuser:as2-test-user 2> /dev/null
 	
 	#Creates the image
 	sudo /usr/bin/AppStreamImageAssistant create-image --name $as2_image_name > ~/AS2ImageAssistant/create_result.json
