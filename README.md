@@ -20,12 +20,12 @@ It's a set of 7 scripts, which are:
 
 **How to use?**
 
-  1. You can download all the files one by one to your Image Builder OR
+  1. (optional) You can download all the files one by one to your Image Builder
   2. Git clone them like this: ```git clone https://github.com/travelingbear/AS2_Linux_ImageAssistant --depth 1 --branch=main ~/MyFiles/Image_Assistant_Scripts/```
   3. Make the files executable: ```chmod ugo+x ~/MyFiles/Image_Assistant_Scripts/*.sh```
   4. Execute MainMenu.sh: ```~/MyFiles/Image_Assistant_Scripts/MainMenu.sh```
 
 **Not supported yet**
 
- - The 'optimization' seems to not make much difference in almost all the cases I have tested. It's possible to create an automated method for that, but the effort and the benefit is not good. Apps will use most of the files already loaded during OS initilization. I don't think Linux would benefit from this as it is with Windows fleet instances.
+ - The 'optimization' seems to not make much difference in almost all the cases I have tested. It's possible to create an automated method for that, maybe while adding applications?
  - Environment variables - This one I already have a pseudo-code I can use, but I haven't find time yet.
