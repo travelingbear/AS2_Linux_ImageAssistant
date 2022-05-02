@@ -1,5 +1,8 @@
 #!/bin/bash
+
+#ListApplications.sh
 #Just a simple script to bring the applications in a more readable way
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 
