@@ -63,7 +63,7 @@ if (whiptail --title "Create the Session Script" --yesno "Does the script needs 
   #Adds the user as2-streaming-user to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
   echo "" | sudo tee -a /etc/sudoers
   echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
-  echo "## The following line allows as2-streaming-user to use sudo WITHOUT asking for password" | sudo tee -a /etc/sudoers
+  echo "## The following line allows as2-streaming-user to use sudo" | sudo tee -a /etc/sudoers
   echo "as2-streaming-user ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
   echo "" | sudo tee -a /etc/sudoers
   echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
