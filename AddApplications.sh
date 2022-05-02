@@ -8,34 +8,21 @@ echo "#!/bin/bash" > ~/AS2ImageAssistant/getfilestool.sh
 echo "lsof -p \$(pstree -p $1 | grep -o '([0-9]\+)' | grep -o '[0-9]\+' | tr '\012' ,)|grep REG | sed -n '1!p' | awk '{print $9}'|awk 'NF'" >> ~/AS2ImageAssistant/getfilestool.sh
 chmod u+x ~/AS2ImageAssistant/getfilestool.sh
 
-#Function to clear variables
-clear_var () {
-	unset as2_application_name
-	unset as2_app_display_name
-	unset command_display_name
-	unset as2_app_absolute_path
-	unset bash_application_name
-	unset app_to_lower_case
-	unset as2_application_pid
-	unset as2_app_icon_location
-	unset command_icon_location
-	unset as2_app_working_directory
-	unset command_working_directory	
-}
-
 ##Create a window to query App information##
 
 #QUESTION 1 - What's the application name?
 until [[ $as2_application_name != "" ]]; do
-	as2_application_name=$(whiptail --inputbox "*Required\n\nApplication Name (i.e. Mahjongg_1.0)" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
+	as2_application_name=$(whiptail --inputbox "*Required\n\nApplication Name with no spaces (i.e. mahjongg)" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
 	exitstatus=$?
+	as2_application_name=$(echo $as2_application_name | sed 's/ /_/g')
 	if [ $exitstatus = 1 ]; then
 	exit
 	fi
 done
 
 #QUESTION 2 - What's the application Display Name?
-as2_app_display_name=$(whiptail --inputbox "*Optional\n\nApplication DISPLAY Name (i.e. Mahjongg)" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
+as2_app_display_name=$(whiptail --inputbox "*Optional\n\nApplication DISPLAY Name with no spaces (i.e. Mahjongg_Master)" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
+as2_app_display_name=$(echo $as2_app_display_name | sed 's/ /_/g')
 [[ ! -z "$as2_app_display_name" ]] && command_display_name="--display-name $as2_app_display_name" || command_display_name=""
 exitstatus=$?
 if [ $exitstatus = 1 ]; then
@@ -86,8 +73,8 @@ if (whiptail --title "Add Application" --yesno "Is the application a SHELL or a 
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
 			echo "#     You can close this GEDIT window If the command above is correct     #" >> /usr/local/bin/$app_to_lower_case.sh
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
-			echo "# Otherwise, update the name above (after 'bash -c ____'), save the file  #" >> /usr/local/bin/$app_to_lower_case.sh
-			echo '# and save and close this window                                          #' >> /usr/local/bin/$app_to_lower_case.sh
+			echo "# Otherwise, update the name above (after 'bash -c ...'), save the file    #" >> /usr/local/bin/$app_to_lower_case.sh
+			echo '# and close this window                                                   #' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '###########################################################################' >> /usr/local/bin/$app_to_lower_case.sh
 			sudo chmod ugo+x /usr/local/bin/$app_to_lower_case.sh 
