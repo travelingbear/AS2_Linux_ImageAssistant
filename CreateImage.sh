@@ -42,7 +42,7 @@ if (whiptail --title "Create the image" --yesno "Can I create the image?" 12 78)
 	#Kills any process owned by test-user; then removes it
 	sudo killall -u test-user 2> /dev/null
 	sudo userdel test-user 2> /dev/null
-	sudo rm -r /home/test-user 2> /dev/null
+	sudo rm -rf /home/test-user 2> /dev/null
 
 	#Removes the test-user from xhost
 	xhost -si:localuser:test-user 2> /dev/null
