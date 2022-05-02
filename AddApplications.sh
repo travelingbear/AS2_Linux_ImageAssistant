@@ -56,12 +56,10 @@ if (whiptail --title "Add Application" --yesno "Is the application a SHELL or a 
 		echo "########################### Script Start ##############################"
 		echo ""
 		echo ""
-		echo ""
 		echo "#!/bin/bash"
 		echo "#This is a simple script to call my bash application in AppStream"
 		echo ""
 		echo "gnome-terminal -- bash -c ${bold}MY_APPLICATION${normal}"
-		echo ""
 		echo ""
 		echo ""
 		echo "############################ Script End ##############################"
@@ -86,9 +84,9 @@ if (whiptail --title "Add Application" --yesno "Is the application a SHELL or a 
 			echo '' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '###########################################################################' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
-			echo "# If the command above is correct, then you can close this GEDIT window.  #" >> /usr/local/bin/$app_to_lower_case.sh
+			echo "#     You can close this GEDIT window If the command above is correct     #" >> /usr/local/bin/$app_to_lower_case.sh
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
-			echo "# Otherwise, update the name above (from nudoku to the correct app name), #" >> /usr/local/bin/$app_to_lower_case.sh
+			echo "# Otherwise, update the name above (after 'bash -c ____'), save the file  #" >> /usr/local/bin/$app_to_lower_case.sh
 			echo '# and save and close this window                                          #' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '#                                                                         #' >> /usr/local/bin/$app_to_lower_case.sh
 			echo '###########################################################################' >> /usr/local/bin/$app_to_lower_case.sh
