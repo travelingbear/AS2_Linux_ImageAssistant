@@ -58,9 +58,23 @@ echo ""
 read -p "Hit enter to open GEDIT - Dont forget to save before closing it."
 sudo gedit /opt/appstream/SessionScripts/config.json 2> /dev/null
 clear
-echo ""
-echo "Script created successfully."
-echo ""
-read -p "That's it! Hit enter to return to the main menu..."
+#QUESTION - Does it need to run as SUDO?
+echo "Creating the script..."
+if (whiptail --title "Create the Session Script" --yesno "Does the script needs to run as SUDO?" 12 78); then
+  #Creates a backup of /etc/sudoers, just in case...
+  sudo cp /etc/sudoers /etc/sudoers_old
+  
+  #Adds the user as2-streaming-user to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
+  echo "" | sudo tee -a /etc/sudoers
+  echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
+  echo "## The following line allows as2-streaming-user to use sudo WITHOUT asking for password" | sudo tee -a /etc/sudoers
+  echo "as2-streaming-user ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+  echo "" | sudo tee -a /etc/sudoers
+  echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
+  echo "" | sudo tee -a /etc/sudoers
+	whiptail --msgbox --title "Create the Session Script" "Script created successfully!" 12 78
+else
+	  whiptail --msgbox --title "Create the Session Script" "Script created successfully" 12 78
+fi
 exit
 
