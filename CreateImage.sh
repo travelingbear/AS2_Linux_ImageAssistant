@@ -39,15 +39,22 @@ if (whiptail --title "Create the image" --yesno "Can I create the image?" 12 78)
 			exit
 		fi
 	done
+	#Kills any process owned by test-user; then removes it
+	sudo killall -u test-user 2> /dev/null
+	sudo userdel test-user 2> /dev/null
+	sudo rm -r /home/test-user 2> /dev/null
+
+	#Removes the test-user from xhost
+	xhost -si:localuser:test-user 2> /dev/null
+	
+	#Creates the image
 	sudo /usr/bin/AppStreamImageAssistant create-image --name $as2_image_name > ~/AS2ImageAssistant/create_result.json
 	create_result=$(cat ~/AS2ImageAssistant/create_result.json | jq -r '.message')
 	if [[ $create_result == "Success" ]]; then 
 		whiptail --msgbox --title "Create the image" "The image was created successfully!" 12 78
 	else
 		whiptail --msgbox --title "Create the image" "There was an error creating the image. Here is the message:\n\n-> $create_result" 12 78
+		clear
+		exit
 	fi
-	exit
-else
-	clear
-	exit
 fi
