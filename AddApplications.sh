@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#AddApplications.sh
+#A script to help adding applications to your app catalog in AS2
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 
