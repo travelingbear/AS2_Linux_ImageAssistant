@@ -6,7 +6,7 @@ normal=$(tput sgr0)
 
 #Checks if test-user exists. If not, create it.
 does_testuser_exist=$(getent passwd | grep -c '^test-user:')
-if [[ ! $does_testuser_exist ]]
+if [[ $does_testuser_exist == 0 ]]
 	then 
 	#Creates a test user to test the applications
 	sudo useradd -m test-user 2> /dev/null
