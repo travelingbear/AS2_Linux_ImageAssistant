@@ -36,7 +36,7 @@ done
 
 #QUESTION 2 - What's the application Display Name?
 as2_app_display_name=$(whiptail --inputbox "*Optional\n\nApplication DISPLAY Name (i.e. Mahjongg)" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
-[[ ! -z "$as2_app_display_name" ]] && command_display_name=$("--display-name $as2_app_display_name") || command_display_name=""
+[[ ! -z "$as2_app_display_name" ]] && command_display_name="--display-name $as2_app_display_name" || command_display_name=""
 exitstatus=$?
 if [ $exitstatus = 1 ]; then
 exit
@@ -214,7 +214,7 @@ fi
 
 #QUESTION 4 - What's the ICON image file location?
 as2_app_icon_location=$(whiptail --inputbox "*Optional\n\nWhat's the ICON image file location?" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
-[[ ! -z "$as2_app_absolute_path" ]] && command_icon_location=$("--absolute-icon-path $as2_app_absolute_path") || command_icon_location=""
+[[ ! -z "$as2_app_icon_location" ]] && command_icon_location="--absolute-icon-path $as2_app_icon_location" || command_icon_location=""
 exitstatus=$?
 if [ $exitstatus = 1 ]; then
 exit
@@ -222,7 +222,7 @@ fi
 
 #QUESTION 5 - What's the app's working directory?
 as2_app_working_directory=$(whiptail --inputbox "*Optional\n\nWhat's the app's working directory?" 12 78 --title "Add Application" 3>&1 1>&2 2>&3)
-[[ ! -z "$as2_app_working_directory" ]] && command_working_directory=$("--working-directory $as2_app_working_directory") || command_working_directory=""
+[[ ! -z "$as2_app_working_directory" ]] && command_working_directory="--working-directory $as2_app_working_directory" || command_working_directory=""
 exitstatus=$?
 if [ $exitstatus = 1 ]; then
 exit
