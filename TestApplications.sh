@@ -1,5 +1,8 @@
 #!/bin/bash
+
+#TestApplications.sh
 #Just a simple script to test the applications in the catalog
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 
