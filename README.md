@@ -13,7 +13,8 @@ It's a set of 7 scripts, which are:
    - TestApplications.sh -> Test the applications you have added with AddApplications.sh
    - RemoveApplication.sh -> Remove the applications you have added with AddApplications.sh
    - CreateSessionScript.sh -> Opens a new wizard to help you create a Session Script and configure your config.json file
-   - CreateImage.sh -> You guessed it, it creates the image
+   - CreateEnvVariables.sh -> Opens a new wizard to help you create a script that exports environment variables to your session.
+   - CreateImage.sh -> It creates... the image
 
 **Pre-requisites**
  - It goes without saying that you need git to clone: ```sudo yum update && sudo yum install git -y```
@@ -27,5 +28,4 @@ It's a set of 7 scripts, which are:
 
 **Not supported yet**
 
- - The 'optimization' seems to not make much difference in almost all the cases I have tested. It's possible to create an automated method for that, maybe while adding applications?
- - Environment variables - This one I already have a pseudo-code I can use, but I haven't find time yet.
+ - The 'optimization' seems to not make much difference in almost all the cases I have tested. It's possible to create an automated method for that, I just haven't found a time for that.
