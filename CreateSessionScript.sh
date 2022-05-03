@@ -1,5 +1,8 @@
 #!/bin/bash
+
+#CreateSessionScript.sh
 #Just a simple script to guide users to create/update their SessionScripts
+
 bold=$(tput bold)
 normal=$(tput sgr0)
 clear
@@ -50,27 +53,31 @@ echo "  2. If you dont have 'Arguments' to declare, leave them blank \"\""
 echo ""
 echo -e "  3. Validate your config.json with \e[34mhttps://jsonlint.com\e[0m"
 echo ""
+echo "  4. Try to test your script before creating the image"
+echo ""
 echo ""
 read -p "Hit enter to open GEDIT - Dont forget to save before closing it."
 sudo gedit /opt/appstream/SessionScripts/config.json 2> /dev/null
 clear
 #QUESTION - Does it need to run as SUDO?
 echo "Creating the script..."
-if (whiptail --title "Create the Session Script" --yesno "Does the script needs to run as SUDO?" 12 78); then
-  #Creates a backup of /etc/sudoers, just in case...
-  sudo cp /etc/sudoers /etc/sudoers_old
-  
-  #Adds the user as2-streaming-user to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
-  echo "" | sudo tee -a /etc/sudoers
-  echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
-  echo "## The following line allows as2-streaming-user to use sudo" | sudo tee -a /etc/sudoers
-  echo "as2-streaming-user ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-  echo "" | sudo tee -a /etc/sudoers
-  echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
-  echo "" | sudo tee -a /etc/sudoers
-	whiptail --msgbox --title "Create the Session Script" "Script created successfully!" 12 78
+if (whiptail --title "Create Environment Variables" --yesno "Does the script needs to run as SUDO?" 12 78); then
+	#checks if the user exists in the sudoers file
+	sudo cat /etc/sudoers | grep as2-streaming-user &> /dev/null
+	if [[ $? == 1 ]]; then
+	  #Creates a backup of /etc/sudoers, just in case...
+	  sudo cp /etc/sudoers /etc/sudoers_as2_old
+	  #Adds the user as2-streaming-user to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
+	  echo "" | sudo tee -a /etc/sudoers
+	  echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
+	  echo "## The following line allows as2-streaming-user to use sudo" | sudo tee -a /etc/sudoers
+	  echo "as2-streaming-user ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+	  echo "" | sudo tee -a /etc/sudoers
+	  echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
+	  echo "" | sudo tee -a /etc/sudoers
+	fi	
+	whiptail --msgbox --title "Create Session Script" "Script created successfully!" 12 78
 else
-	  whiptail --msgbox --title "Create the Session Script" "Script created successfully" 12 78
+	whiptail --msgbox --title "Create Session Script" "Script created successfully" 12 78
 fi
 exit
-
