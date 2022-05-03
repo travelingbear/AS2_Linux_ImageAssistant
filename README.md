@@ -6,7 +6,7 @@ It is a set of scripts to provide a 'wizard' like experience for users creating 
 
 **What is included?**
 
-It's a set of 7 scripts, which are:
+It's a set of 8 scripts, which are:
    - MainMenu.sh -> this is where you can start the app
    - AddApplications.sh -> Add applications you have installed in your Image Builder
    - ListApplications.sh -> List the applications you have added with AddApplications.sh
