@@ -25,8 +25,9 @@ home_screen () {
 	echo "3) Test applications"
 	echo "4) Remove application"
 	echo "5) Create/Update Session Script"
-	echo "6) Create Image"
-	echo "7) Exit"
+	echo "6) Create/Update Environment Variables"
+	echo "7) Create Image"
+	echo "8) Exit"
 	echo ""
 }
 echo ""
@@ -42,6 +43,7 @@ options=(
 	"Test applications"
 	"Remove application"
 	"Create/Update Session Script"
+	"Create/Update Environment Variables"
 	"Create Image"
 	"Exit"
 )
@@ -55,7 +57,8 @@ select option in "${options[@]}"; do
         3) ./TestApplications.sh && home_screen ;;
         4) ./RemoveApplication.sh && home_screen ;;
         5) ./CreateSessionScript.sh && home_screen ;;
-        6) ./CreateImage.sh && home_screen ;;
-        7) break ;;
+        6) ./CreateEnvVariables.sh && home_screen ;;
+        7) ./CreateImage.sh && home_screen ;;
+        8) break ;;
     esac
 done
