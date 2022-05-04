@@ -14,7 +14,7 @@ It's a set of 8 scripts, which are:
    - ListApplications.sh -> List the applications you have added with AddApplications.sh
    - TestApplications.sh -> Test the applications you have added with AddApplications.sh
    - RemoveApplication.sh -> Remove the applications you have added with AddApplications.sh
-   - CreateSessionScript.sh -> Opens a new wizard to help you create a Session Script and configure your config.json file
+   - CreateSessionScript.sh -> Opens a new wizard to help you create a SessionScript and configure your config.json file
    - CreateEnvVariables.sh -> Opens a new wizard to help you create a script that exports environment variables to your session.
    - CreateImage.sh -> It creates... the image
 
