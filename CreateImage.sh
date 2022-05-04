@@ -1,6 +1,13 @@
 #!/bin/bash
-#A whiptail script to create the image
+
+#CreateImage.sh
+#It lists the applications > asks the user if they want to save the apps configuration > and creates the image.
+
+#generates a list of the applications and save it in the as2_app_list.json
+sudo AppStreamImageAssistant list-applications > ~/AS2ImageAssistant/as2_app_list.json
+
 clear
+echo ""
 echo "#################################################################"
 echo "#                                                               #"
 echo "#    These are the current applications in the App Catalog:     #"
