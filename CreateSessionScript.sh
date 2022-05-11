@@ -62,20 +62,32 @@ clear
 #QUESTION - Does it need to run as SUDO?
 echo "Creating the script..."
 if (whiptail --title "Create Environment Variables" --yesno "Does the script needs to run as SUDO?" 12 78); then
-	#checks if the user exists in the sudoers file
-	sudo cat /etc/sudoers | grep as2-streaming-user &> /dev/null
+
+	#checks if the group 'as2-sudo-users' exists in the OS
+	if [ ! $(getent group as2-sudo-users) ]; then
+		groupadd as2-sudo-users
+	fi
+
+	#checks if the group 'as2-sudo-users' exists in the sudoers file
+	sudo cat /etc/sudoers | grep as2-sudo-users &> /dev/null
 	if [[ $? == 1 ]]; then
-	  #Creates a backup of /etc/sudoers, just in case...
-	  sudo cp /etc/sudoers /etc/sudoers_as2_old
-	  #Adds the user as2-streaming-user to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
-	  echo "" | sudo tee -a /etc/sudoers
-	  echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
-	  echo "## The following line allows as2-streaming-user to use sudo" | sudo tee -a /etc/sudoers
-	  echo "as2-streaming-user ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
-	  echo "" | sudo tee -a /etc/sudoers
-	  echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
-	  echo "" | sudo tee -a /etc/sudoers
-	fi	
+
+		#Creates a backup of /etc/sudoers, just in case...
+		sudo cp /etc/sudoers /etc/sudoers_as2_old
+
+		#Adds the group 'as2-sudo-users' to the sudoers file allowing it to perform administrative tasks WITHOUT asking for password
+		echo "" | sudo tee -a /etc/sudoers
+		echo "## AS2 Linux Image Assistant start" | sudo tee -a /etc/sudoers
+		echo "## The following line allows users in the group 'as2-sudo-users' to use sudo" | sudo tee -a /etc/sudoers
+		echo "%as2-sudo-users ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+		echo "" | sudo tee -a /etc/sudoers
+		echo "## AS2 Linux Image Assistant end" | sudo tee -a /etc/sudoers
+		echo "" | sudo tee -a /etc/sudoers
+	fi
+	
+	#Adds the user as2-streaming-user to the sudoers file
+	sudo usermod -a -G as2-sudo-users as2-streaming-user
+	
 	whiptail --msgbox --title "Create Session Script" "Script created successfully!" 12 78
 else
 	whiptail --msgbox --title "Create Session Script" "Script created successfully" 12 78
